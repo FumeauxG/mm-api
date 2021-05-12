@@ -19,6 +19,26 @@ remote.runCommand(cmd);
 # construct commands to run
 cmd = mmapi.StoredCommands()
 cmd.AppendBeginToolCommand("overhangs")
+
+cmd.AppendToolParameterCommand("overhangAngleTolerance",65) #Angle Thresh
+cmd.AppendToolParameterCommand("contactTolerance",0)        #Contact Tol
+cmd.AppendToolParameterCommand("verticalOffset",0)          #Y-offset
+
+cmd.AppendToolParameterCommand("maxDraftAngle",70)      #Max Angle
+cmd.AppendToolParameterCommand("density",0.9)           #Density 0 to 1
+cmd.AppendToolParameterCommand("layerHeight",0.15)      #Layer Height
+cmd.AppendToolParameterCommand("postTopSize",3)         #Post Diameter
+cmd.AppendToolParameterCommand("postTipSize",3)         #Tip Diameter
+cmd.AppendToolParameterCommand("postDiscSize",10)       #Base Diameter    
+
+cmd.AppendToolParameterCommand("postTipHeight",2)       #Tip Height
+cmd.AppendToolParameterCommand("postDiscHeight",0.4)    #Base Height
+cmd.AppendToolParameterCommand("strutDensity",0)        #Strut Density 0 to 1
+cmd.AppendToolParameterCommand("solidMinOffset",0.3)    #Solid Min Offset
+cmd.AppendToolParameterCommand("postResolution",8)      #Post Sides
+cmd.AppendToolParameterCommand("optimizeRounds",100)    #Optimization
+cmd.AppendToolParameterCommand("allowTopSupport",False) #Allow Top Connections
+
 cmd.AppendToolUtilityCommand("generateSupport")
 cmd.AppendToolUtilityCommand("convertToSolid",0)
 cmd.AppendCompleteToolCommand("accept")
